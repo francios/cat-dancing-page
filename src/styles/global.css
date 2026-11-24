@@ -1,0 +1,255 @@
+/* 전역 스타일 리셋 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-top: #ffe8d6;
+  --bg-bottom: #f8c8dc;
+  --text: #2b2d42;
+  --muted: #6b6d80;
+  --accent: #e5707e;
+  --accent-strong: #c94f5d;
+  --on-accent: #ffffff;
+  --surface: rgba(255, 255, 255, 0.75);
+  --shadow: rgba(43, 45, 66, 0.15);
+  --floor: rgba(43, 45, 66, 0.12);
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-top: #1e1b2e;
+    --bg-bottom: #3a2442;
+    --text: #f4eefc;
+    --muted: #b8b0c8;
+    --accent: #ff8fa3;
+    --accent-strong: #ffb3c1;
+    --on-accent: #2b2d42;
+    --surface: rgba(30, 27, 46, 0.7);
+    --shadow: rgba(0, 0, 0, 0.4);
+    --floor: rgba(0, 0, 0, 0.3);
+  }
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ===== 레이아웃 (모바일 우선) ===== */
+.layout {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  gap: 16px;
+}
+
+.header {
+  text-align: center;
+}
+.header h1 {
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.stage {
+  position: relative;
+  width: min(70vw, 280px);
+  padding-top: 80px; /* 점프 공간 */
+}
+
+.cat-button {
+  display: block;
+  width: 100%;
+  border-radius: 24px;
+}
+.cat-button:hover .cat {
+  filter: drop-shadow(0 6px 12px var(--shadow));
+}
+
+.footer {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--floor);
+  font-family: ui-monospace, monospace;
+  font-size: 0.8em;
+}
+
+/* 태블릿 */
+@media (min-width: 640px) {
+  .layout { padding: 40px 24px; }
+  .stage { width: 320px; }
+}
+
+/* 데스크탑: 고양이와 컨트롤을 나란히 배치 */
+@media (min-width: 1024px) {
+  .main {
+    flex-direction: row;
+    gap: 64px;
+  }
+  .stage { width: 380px; }
+}
+
+/* 키보드가 없는 터치 기기에서는 단축키 안내 숨김 */
+@media (hover: none) and (pointer: coarse) {
+  .footer { display: none; }
+}
+
+/* 낮은 가로 화면(모바일 가로 모드) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .layout { padding: 12px 16px; gap: 8px; }
+  .main { flex-direction: row; gap: 32px; }
+  .stage { width: 200px; padding-top: 60px; }
+  .subtitle { display: none; }
+}
+
+/* ===== 컨트롤 UI ===== */
+.controls {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px var(--shadow);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+.play-button:hover { background: var(--accent-strong); }
+.play-button:active { transform: scale(0.97); }
+
+.group {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.group legend {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.dance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.dance-grid .chip:last-child { grid-column: 1 / -1; }
+
+.speed-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.chip {
+  min-height: 44px; /* 터치 타깃 최소 크기 */
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--floor);
+  background: transparent;
+  font-weight: 600;
+  transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.chip:hover { border-color: var(--accent); }
+.chip:active { transform: scale(0.96); }
+.chip[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.status {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .dance-grid { grid-template-columns: repeat(3, 1fr); }
+  .dance-grid .chip:last-child { grid-column: auto; }
+}

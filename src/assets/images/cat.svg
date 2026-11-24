@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" role="img" aria-label="주황색 고양이">
+  <!-- 꼬리 -->
+  <path d="M150 190 C190 180 195 130 170 110" fill="none" stroke="#e08e45" stroke-width="14" stroke-linecap="round"/>
+  <!-- 몸 -->
+  <ellipse cx="100" cy="180" rx="55" ry="50" fill="#f4a259"/>
+  <ellipse cx="100" cy="190" rx="32" ry="32" fill="#fde4c8"/>
+  <!-- 발 -->
+  <ellipse cx="72" cy="226" rx="16" ry="10" fill="#f4a259"/>
+  <ellipse cx="128" cy="226" rx="16" ry="10" fill="#f4a259"/>
+  <!-- 귀 -->
+  <path d="M40 70 L48 10 L88 48Z" fill="#f4a259"/>
+  <path d="M160 70 L152 10 L112 48Z" fill="#f4a259"/>
+  <path d="M50 58 L54 26 L76 48Z" fill="#f7b7a3"/>
+  <path d="M150 58 L146 26 L124 48Z" fill="#f7b7a3"/>
+  <!-- 머리 -->
+  <ellipse cx="100" cy="85" rx="65" ry="55" fill="#f4a259"/>
+  <!-- 이마 줄무늬 -->
+  <path d="M90 34 L94 52 M100 32 L100 52 M110 34 L106 52" stroke="#e08e45" stroke-width="5" stroke-linecap="round"/>
+  <!-- 눈 -->
+  <ellipse cx="72" cy="85" rx="10" ry="13" fill="#2b2d42"/>
+  <ellipse cx="128" cy="85" rx="10" ry="13" fill="#2b2d42"/>
+  <circle cx="75" cy="80" r="4" fill="#fff"/>
+  <circle cx="131" cy="80" r="4" fill="#fff"/>
+  <!-- 볼 -->
+  <ellipse cx="55" cy="108" rx="10" ry="6" fill="#f7a1a8" opacity="0.7"/>
+  <ellipse cx="145" cy="108" rx="10" ry="6" fill="#f7a1a8" opacity="0.7"/>
+  <!-- 코와 입 -->
+  <path d="M93 102 H107 L100 110Z" fill="#e5707e"/>
+  <path d="M100 110 Q92 120 84 114 M100 110 Q108 120 116 114" fill="none" stroke="#2b2d42" stroke-width="3" stroke-linecap="round"/>
+  <!-- 수염 -->
+  <path d="M40 98 L68 102 M38 110 L68 108 M160 98 L132 102 M162 110 L132 108" stroke="#2b2d42" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
